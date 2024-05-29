@@ -137,88 +137,88 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <style>
     .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
     }
     .modal-content {
-      background-color: #fff;
-      margin: auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 500px;
-      border-radius: 10px;
-      text-align: center;
+        background-color: #fff;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 10px;
+        text-align: center;
     }
     .modal-content p {
-      margin: 0;
+        margin: 0;
     }
     .modal-content button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background-color: #007BFF;
-      color: white;
-      cursor: pointer;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007BFF;
+        color: white;
+        cursor: pointer;
     }
 
     body {
-      display: flex;
-      font-family: Arial, sans-serif;
+        display: flex;
+        font-family: Arial, sans-serif;
     }
     .content-container {
-      flex: 1;
-      padding: 20px;
+        flex: 1;
+        padding: 20px;
     }
     .content {
-      display: none;
+        display: none;
     }
     ul {
-      list-style: none;
-      padding: 0;
+        list-style: none;
+        padding: 0;
     }
     li {
-      display: flex;
-      justify-content: flex-start;
-      padding: 10px;
-      margin: 5px 0;
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px;
+        margin: 5px 0;
     }
     .form-inline {
-      display: flex;
-      gap: 10px;
+        display: flex;
+        gap: 10px;
     }
     input[type="text"],
     input[type="tel"] {
-      padding: 5px;
-      margin-right: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+        padding: 5px;
+        margin-right: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
     }
     .update-btn, .delete-btn {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
     }
     .update-btn {
-      background-color: #007BFF;
-      color: white;
+        background-color: #4CAF50;
+        color: white;
     }
     .delete-btn {
-      background-color: #FF0000;
-      color: white;
+        background-color: #F44336;
+        color: white;
     }
-  </style>
+</style>
 </head>
 <body>
   <nav class="sidebar close">
@@ -398,7 +398,7 @@ function confirmRemove(event) {
             </div>
             <div class="form-group">
                 <label for="bloodAvailable">Blood Available</label>
-                <div id="bloodAvailable">
+                <div class="bloodAvailable">
                     <label>
                         <input type="checkbox" name="bloodAvailable[]" value="A"> A
                     </label>
@@ -413,7 +413,7 @@ function confirmRemove(event) {
                     </label>
                 </div>
             </div>
-            <button type="submit">Add Blood Bank</button>
+            <button type="submit" class="pull-left">Add Blood Bank</button>
         </form>
     </div>
 </div>
@@ -502,7 +502,7 @@ function confirmDelete() {
                             <td>
                                 <form action="" method="POST" onsubmit="return confirmRemoveReview(event)">
                                     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                    <button type="submit" style="width: 100%;" name="removeReview">Remove</button>
+                                    <button type="submit" style="width: 100%;" name="removeReview" class="delete-btn">Remove</button>
                                 </form>
                             </td>
                         </tr>

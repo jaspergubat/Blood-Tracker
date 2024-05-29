@@ -31,6 +31,10 @@
                         <label for="confirm_password">Confirm Password*</label>
                         <input id="confirm_password" type="password" class="form-control" name="confirm_password" required autocomplete="confirm_password">
                     </div>
+                    <div class="field-terms">
+                        <input id="terms" type="checkbox" name="terms" required>
+                        <label for="terms"><span class="text">I agree to the <a class="termsandconditions" href="termsandconditions.php">terms and conditions</a></span></label>
+                    </div>
                     <div class="redirect">
                         <span class="text">Already have an account?</span>
                         <a href="login.php">Login</a>

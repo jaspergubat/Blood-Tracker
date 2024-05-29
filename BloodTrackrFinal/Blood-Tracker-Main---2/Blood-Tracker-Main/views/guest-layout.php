@@ -24,7 +24,6 @@ include_once 'core/functions.php';
   <?php include('views/inc/guest-nav.php') ?>
   <?php include('views/inc/modals.php') ?>
   <?php include($contentView) ?>
-
   <?php include('views/inc/footer.php') ?>
 
   <!-- JS Link -->

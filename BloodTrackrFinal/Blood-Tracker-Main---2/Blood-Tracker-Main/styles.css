@@ -552,6 +552,15 @@ main .pubmats .pubmat img {
   padding: 4em 2em;
 }
 
+.field-terms{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: left;
+  gap: 1em;
+  align-items: center;
+}
+
 .hero .hero-content form {
   background-color: var(--white);
   padding: 2em;
@@ -606,14 +615,21 @@ main .pubmats .pubmat img {
 
 .hero .hero-content form .details .redirect {
   display: flex;
-  justify-content: right;
+  justify-content: left;
   align-items: center;
   gap: 0.5em;
 }
 
-.hero .hero-content form .details .redirect .text {
+.text {
   color: var(--gray-700);
   font-size: 1.8em;
+  font-weight: 500;
+}
+
+.termsandconditions{
+  color: blue;
+  text-decoration: underline;
+  font-size: 1.1em;
   font-weight: 500;
 }
 
@@ -1311,20 +1327,26 @@ main .pubmats .pubmat img {
   gap: 1em;
 }
 
-.reviews-container .reviews .review .review-message .stars-container {
+.stars-container {
   display: flex;
   gap: 0.5em;
   align-items: center;
 }
 
-.reviews-container .reviews .review .review-message .stars-container .star {
+.stars-container .star {
   font-size: 2em;
   color: var(--yellow-500);
 }
 
-.reviews-container .reviews .review .review-message .stars-container .rating {
+.stars-container .rating {
   font-size: 2em;
   color: var(--yellow-500);
+  font-weight: 700;
+}
+
+.rating2 {
+  font-size: 2em;
+  color: black;
   font-weight: 700;
 }
 
@@ -1573,7 +1595,6 @@ main .pubmats .pubmat img {
   position: relative;
   min-height: calc(100vh - 116px);
   padding: 0 2em;
-  display: flex;
 }
 
 .bank-map .bank-details {
@@ -1852,14 +1873,15 @@ main .pubmats .pubmat img {
 #blood_type option,
 #region option,
 #time option {
-  font-size: 1.6rem; /* Adjust the font size as needed */
+  font-size: 1.6rem;
 }
 
 #name,
 #name option {
-  font-size: 1.6rem; /* Adjust the font size as needed */
+  font-size: 1.6rem;
 }
 
 .content-group p {
-  font-size: 1.6rem; /* Adjust the font size as needed */
+  font-size: 1.6rem;
 }
+

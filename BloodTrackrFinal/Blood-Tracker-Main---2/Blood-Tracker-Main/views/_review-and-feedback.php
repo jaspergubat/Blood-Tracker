@@ -48,12 +48,24 @@
 
                     if (isset($_SESSION['selectedBankID'])) {
                         $selectedBankID = $_SESSION['selectedBankID'];
-                        $stmtReviews = $conn->prepare("SELECT * FROM reviews WHERE bank_id = ?");
+                        $stmtReviews = $conn->prepare("SELECT * FROM reviews WHERE bank_id = ? ORDER BY created_at DESC");
                         $stmtReviews->bind_param("i", $selectedBankID);
                         $stmtReviews->execute();
                         $reviewsResult = $stmtReviews->get_result();
                     } else {
                         $reviewsResult = false;
+                    }
+
+                    $averageRating = 0;
+                    $totalReviews = 0;
+                    if ($reviewsResult && $reviewsResult->num_rows > 0) {
+                        $sumRatings = 0;
+                        while ($reviewRow = $reviewsResult->fetch_assoc()) {
+                            $sumRatings += $reviewRow['rating'];
+                            $totalReviews++;
+                        }
+                        $averageRating = $sumRatings / $totalReviews;
+                        $reviewsResult->data_seek(0);
                     }
 
                     if ($result) {
@@ -107,6 +119,21 @@
                     <div class="reviews">
                         <div class="reviews-header">
                             <header>Reviews</header>
+                            <div class="average-rating">
+                                <span class="rating2">Average Rating:</span>
+                                <div class="stars-container">
+                                    <?php
+                                        for ($i = 0; $i < floor($averageRating); $i++) {
+                                            echo '<i class="fa-solid fa-star star"></i>';
+                                        }
+                                        if ($averageRating - floor($averageRating) >= 0.5) {
+                                            echo '<i class="fa-solid fa-star-half star"></i>';
+                                        }
+                                    ?>
+                                    <span class="rating"><?php echo number_format($averageRating, 1); ?> / 5.0 </span>
+                                    <span class="rating2">(<?php echo $totalReviews; ?> reviews)</span>
+                                </div>
+                            </div>
                             <button id="rating-btn" class="primary">Write a Review</button>
                         </div>
                         <div class="reviews-section">
@@ -125,10 +152,10 @@
                                         <div class="review-message">
                                             <div class="stars-container">
                                                 <?php
-                                                $rating = $reviewRow['rating'];
-                                                for ($i = 0; $i < $rating; $i++) {
-                                                    echo '<i class="fa-solid fa-star star"></i>';
-                                                }
+                                                    $rating = $reviewRow['rating'];
+                                                    for ($i = 0; $i < $rating; $i++) {
+                                                        echo '<i class="fa-solid fa-star star"></i>';
+                                                    }
                                                 ?>
                                                 <span class="rating"><?php echo $rating; ?>.0</span>
                                             </div>

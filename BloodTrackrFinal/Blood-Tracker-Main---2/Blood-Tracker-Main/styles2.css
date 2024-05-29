@@ -390,7 +390,7 @@ textarea {
 }
 
 /* General button style */
-button {
+.pull-left {
   background: #007bff;
   color: #fff;
   padding: 10px 15px;
@@ -400,20 +400,32 @@ button {
   transition: background 0.3s ease;
 }
 
-button:hover {
+.pull-left:hover {
   background: #0056b3;
 }
 
-button[type="submit"] {
+.pull-left[type="submit"] {
   background: #007bff;
 }
 
-button[type="submit"]:hover {
+.bloodAvailable {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2em;
+  align-items: center;
+  justify-content: left;
+}
+
+.pull-left[type="submit"]:hover {
   background: #0056b3;
 }
 
 .content {
   margin: 20px;
+}
+
+#addBloodBank {
+  max-width: 800px;
 }
 
 .section-container {
